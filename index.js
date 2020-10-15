@@ -1,11 +1,16 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+const util = require("util");
+const octokit=require("@octokit/core")
 
-const licenses = []
+const writeFileAsync = util.promisify(fs.writeFile);
+
+
+// const licenses = []
 //create array that links to corresponding sections
-const tableOfContents = ["Description", "Installation", "Usage", "Contributing", "Tests"]
-async function userInput(){
-    const answers = await inquirer.prompt([
+// const tableOfContents = ["Description", "Installation", "Usage", "Contributing", "Tests"]
+function userInput(){
+    return inquirer.prompt([
         {
             type: "input",
             message: "What is the name of your project?",
@@ -41,12 +46,12 @@ async function userInput(){
             type: "checkbox",
             message: "Licensing",
             name: "license",
-            choices: licenses
+            choices: await octokit.request('GET /licenses')
         },
-        generateHTML(answers)
+        console.log("checkbox")
     ])
 }
-
-function generateHTML(answers){
-    const
-}
+userInput();
+// function generateHTML(answers){
+//     const
+// }
