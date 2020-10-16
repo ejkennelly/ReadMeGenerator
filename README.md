@@ -1,18 +1,11 @@
 
-# lakdjsf 
-## DESCRIPTION
-al;sdkfj
-## TABLE OF CONTENTS
-* [Installation](#installation)
-* [Usage](#usage)
-## Installation
-a;lsdfjk
-## Usage 
-adsfklj
-## Contributing
-a;dslfk
-## Tests
-a;dflsk
-## License
-MIT
-![license](https://img.shields.io/badge/license-MIT-ff69b4)
+# ReadMe Generator
+For this project I created a command line app with Node.js that takes user input and creates a readme file for them. 
+To use this project, run an integrated terminal and fill in the criteria that is asked for. 
+
+
+
+
+Screenshots of code
+![md](md.png)
+![preview](preview.png)

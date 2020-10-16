@@ -1,7 +1,7 @@
 
-# alskfdj;laskjdfl;asjdfl;kasjdf;aj 
+# ReadMe Generator 
 ## Description
-a;lskdfj;ladskjdf
+generates readme files
 ## Table of Contents
 * [Installation Instructions](#installation)
 * [Usage Info](#usage)
@@ -10,22 +10,23 @@ a;lskdfj;ladskjdf
 * [Questions](#questions)
 
 ## Installation
-alskdjf;lasjdf;alsjkf
+use integrated terminal
 
 ## Usage 
-laksdjfl;daskjf;lasj
+go for it
 
 ## Contributing
-alsdfkjal;skjdf;alsjdf
+feel free to help
 
 ## Tests
-asdfja;sldkfj
+who likes tests?
 
 ## License
-MIT
-![license](https://img.shields.io/badge/license-MIT-ff69b4)
+Apache
+![license](https://img.shields.io/badge/license-Apache-ff69b4)
 
 ## Questions
 [Link to my Github](https://github.com/ejkennelly)
+
 Contact email address if you have additional questions: elizakennelly@gmail.com
 
