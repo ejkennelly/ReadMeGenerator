@@ -1,8 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
-
-const writeFileAsync = util.promisify(fs.writeFile);
+const writeFile = util.promisify(fs.writeFile);
 
 
 // badge URL https://img.shields.io/badge/license-MIT-ff69b4
@@ -51,37 +50,61 @@ function userInput(){
         }
     ])
 }
-
-function generateMD(answers) {
-    // Need project title, clickable TOC items, description, installation, usage, 
-    // contributing, tests, license/badge, questions section forlink to github, email 
-    return `
-    # ${answers.title}
-    ### DESCRIPTION
+function generateMarkdown(answers) {
+    return `# ${answers.title} 
+    ## DESCRIPTION
     ${answers.description}
-    ### TABLE OF CONTENTS
-    *[Installation](#installation)
-    *[Usage](#usage)
-    ### Installation Instructions
+    ## TABLE OF CONTENTS
+    * [Installation](#installation)
+    * [Usage](#usage)
+    ## Installation
     ${answers.install}
-    ### Usage Information
+    ## Usage 
     ${answers.usageInfo}
-    ### Contribution Guidelines
+    ## Contributing
     ${answers.contrib}
-    ### Test Instructions
+    ## Tests
     ${answers.test}
-    ### License
+    ## License
     ${answers.license}
-    ![license badge](https://img.shields.io/badge/license-${answers.license}-ff69b4)`;
-}
+    ![license](https://img.shields.io/badge/license-${answers.license}-ff69b4)`;
+  }
+  
+
+
+// function generateMD(answers) {
+//     // Need project title, clickable TOC items, description, installation, usage, 
+//     // contributing, tests, license/badge, questions section forlink to github, email 
+//     return `# ${answers.title}
+//     ## DESCRIPTION
+//     ${answers.description}
+//     ## TABLE OF CONTENTS
+//     * [Installation](#installation)
+//     * [Usage](#usage)
+//     ## Installation
+//     ${answers.install}
+//     ## Usage 
+//     ${answers.usageInfo}
+//     ## Contributing
+//     ${answers.contrib}
+//     ## Tests
+//     ${answers.test}
+//     ## License
+//     ${answers.license}
+//     ![license](https://img.shields.io/badge/license-${answers.license}-ff69b4)`;
+// }
+
+// module.exports = generateMD
+// function to generate markdown for README
+
 async function init() {
     console.log("hi")
     try {
       const answers = await userInput();
   
-      const readme = generateMD(answers);
+      const readme = generateMarkdown(answers);
   
-      await writeFileAsync("README.md", readme);
+      writeFile("README.md", readme);
   
       console.log("Successfully wrote to readme.md");
     } catch(err) {
