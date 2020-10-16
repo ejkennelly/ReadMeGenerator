@@ -46,56 +46,31 @@ function userInput(){
             type: "list",
             message: "Licensing",
             name: "license",
-            choices: ["MIT", "License2", "license4"]
+            choices: ["MIT", "Apache", "GPL", "Affero GPL"]
         }
     ])
 }
 function generateMarkdown(answers) {
-    return `# ${answers.title} 
-    ## DESCRIPTION
-    ${answers.description}
-    ## TABLE OF CONTENTS
-    * [Installation](#installation)
-    * [Usage](#usage)
-    ## Installation
-    ${answers.install}
-    ## Usage 
-    ${answers.usageInfo}
-    ## Contributing
-    ${answers.contrib}
-    ## Tests
-    ${answers.test}
-    ## License
-    ${answers.license}
-    ![license](https://img.shields.io/badge/license-${answers.license}-ff69b4)`;
+    return `
+# ${answers.title} 
+## DESCRIPTION
+${answers.description}
+## TABLE OF CONTENTS
+* [Installation](#installation)
+* [Usage](#usage)
+## Installation
+${answers.install}
+## Usage 
+${answers.usageInfo}
+## Contributing
+${answers.contrib}
+## Tests
+${answers.test}
+## License
+${answers.license}
+![license](https://img.shields.io/badge/license-${answers.license}-ff69b4)`;
   }
   
-
-
-// function generateMD(answers) {
-//     // Need project title, clickable TOC items, description, installation, usage, 
-//     // contributing, tests, license/badge, questions section forlink to github, email 
-//     return `# ${answers.title}
-//     ## DESCRIPTION
-//     ${answers.description}
-//     ## TABLE OF CONTENTS
-//     * [Installation](#installation)
-//     * [Usage](#usage)
-//     ## Installation
-//     ${answers.install}
-//     ## Usage 
-//     ${answers.usageInfo}
-//     ## Contributing
-//     ${answers.contrib}
-//     ## Tests
-//     ${answers.test}
-//     ## License
-//     ${answers.license}
-//     ![license](https://img.shields.io/badge/license-${answers.license}-ff69b4)`;
-// }
-
-// module.exports = generateMD
-// function to generate markdown for README
 
 async function init() {
     console.log("hi")
