@@ -3,12 +3,6 @@ const fs = require("fs");
 const util = require("util");
 const writeFile = util.promisify(fs.writeFile);
 
-
-// badge URL https://img.shields.io/badge/license-MIT-ff69b4
-//github profile link 
-//email address 
-//create array that links to corresponding sections
-// const tableOfContents = ["Description", "Installation", "Usage", "Contributing", "Tests"]
 function userInput(){
     return inquirer.prompt([
         {
@@ -47,28 +41,53 @@ function userInput(){
             message: "Licensing",
             name: "license",
             choices: ["MIT", "Apache", "GPL", "Affero GPL"]
+        },
+        {
+            type: "input",
+            message: "Github username: ",
+            name: "github"
+        },
+        {
+            type: "input",
+            message: "Contact email address:",
+            name: "email"
         }
     ])
 }
 function generateMarkdown(answers) {
     return `
 # ${answers.title} 
-## DESCRIPTION
+## Description
 ${answers.description}
-## TABLE OF CONTENTS
-* [Installation](#installation)
-* [Usage](#usage)
+## Table of Contents
+* [Installation Instructions](#installation)
+* [Usage Info](#usage)
+* [Contribution Guidelines](#contributing)
+* [Test Instructions](#tests)
+* [Questions](#questions)
+
 ## Installation
 ${answers.install}
+
 ## Usage 
 ${answers.usageInfo}
+
 ## Contributing
 ${answers.contrib}
+
 ## Tests
 ${answers.test}
+
 ## License
 ${answers.license}
-![license](https://img.shields.io/badge/license-${answers.license}-ff69b4)`;
+![license](https://img.shields.io/badge/license-${answers.license}-ff69b4)
+
+## Questions
+[Link to my Github](https://github.com/${answers.github})
+
+Contact email address if you have additional questions: ${answers.email}
+
+`;
   }
   
 
@@ -79,7 +98,7 @@ async function init() {
   
       const readme = generateMarkdown(answers);
   
-      writeFile("README.md", readme);
+      writeFile("README2.md", readme);
   
       console.log("Successfully wrote to readme.md");
     } catch(err) {
