@@ -72,9 +72,7 @@ function generateMD(answers) {
     ${answers.test}
     ### License
     ${answers.license}
-    ![license badge](https://img.shields.io/badge/license-${answers.license}-ff69b4)
-
-    `
+    ![license badge](https://img.shields.io/badge/license-${answers.license}-ff69b4)`;
 }
 async function init() {
     console.log("hi")
